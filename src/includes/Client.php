@@ -7,7 +7,7 @@
  * @time        12:59 PM
  */
 
-namespace wps\includes\system;
+namespace wps\includes;
 
 class Client {
 
