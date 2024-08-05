@@ -2,6 +2,6 @@
 
 declare( strict_types=1 );
 
-class Plugin_Name_DB_Handler {
+class Plugin_Name_DB {
 
 }
