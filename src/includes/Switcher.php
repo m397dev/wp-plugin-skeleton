@@ -7,7 +7,7 @@
  * @time        12:56 PM
  */
 
-namespace wps\includes\system;
+namespace wps\includes;
 
 class Switcher {
 

@@ -4,11 +4,11 @@
  * @author      M397
  * @email       m397.dev@gmail.com
  * @date        8/5/2024
- * @time        12:55 PM
+ * @time        12:56 PM
  */
 
-namespace wps\includes\system;
+namespace wps\includes;
 
-class Loader {
+class I18n {
 
 }

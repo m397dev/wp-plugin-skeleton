@@ -7,7 +7,7 @@
  * @time        12:55 PM
  */
 
-namespace wps\includes\system;
+namespace wps\includes;
 
 class Repository {
 
