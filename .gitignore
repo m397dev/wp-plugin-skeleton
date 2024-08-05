@@ -9,16 +9,16 @@ composer.lock
 # Cache
 writable/cache/*
 *.cache
-!writable/cache/index.html
+!writable/cache/.gitkeep
 
 # Logs
 writable/logs/*
 *.log
-!writable/logs/index.html
+!writable/logs/.gitkeep
 
 # Tmp
 tmp/*
-!tmp/index.html
+!tmp/.gitkeep
 
 # Assets
 !src/admin/assets/vendor
