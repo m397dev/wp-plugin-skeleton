@@ -1,0 +1,25 @@
+# IDE
+.idea
+.vscode
+
+# Composer
+vendor
+composer.lock
+
+# Cache
+writable/cache/*
+*.cache
+!writable/cache/index.html
+
+# Logs
+writable/logs/*
+*.log
+!writable/logs/index.html
+
+# Tmp
+tmp/*
+!tmp/index.html
+
+# Assets
+!src/admin/assets/vendor
+!src/public/assets/vendor

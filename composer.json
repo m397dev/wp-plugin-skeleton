@@ -1,0 +1,38 @@
+{
+  "name": "inab/wp-plugin-skeleton",
+  "type": "library",
+  "description": "Simple skeleton to help create WordPress plugins rapidly, follow best practices of modern WordPress.",
+  "authors": [
+    {
+      "name": "M397",
+      "email": "m397.dev@gmail.com"
+    }
+  ],
+  "keywords": [
+    "php",
+    "oop",
+    "wordpress",
+    "plugins",
+    "plugin-skeleton"
+  ],
+  "license": "GPL-3.0-or-later",
+  "require": {
+    "php": "^8.1",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.61",
+    "nexusphp/cs-config": "^3.24"
+  },
+  "autoload": {
+    "psr-4": {
+      "wps\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
