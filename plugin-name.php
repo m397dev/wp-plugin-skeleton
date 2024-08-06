@@ -20,3 +20,18 @@ declare( strict_types=1 );
  *
  * @since 1.0.0
  */
+if ( ! function_exists( 'plugin_name_init' ) ) {
+	/**
+	 * Initialization.
+	 *
+	 * @return void
+	 */
+	function plugin_name_init(): void {
+		if ( ! defined( 'WPINC' ) ) {
+			http_response_code( 403 );
+			exit();
+		}
+	}
+
+	plugin_name_init();
+}
