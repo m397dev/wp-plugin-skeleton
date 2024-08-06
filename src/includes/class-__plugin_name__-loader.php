@@ -3,19 +3,19 @@
 declare( strict_types=1 );
 
 /**
- * Class Plugin_Name_Loader.
+ * Class __Plugin_Name_Class___Loader.
  *
  * Register all actions and filters for the plugin.
  * Maintain a list of all hooks that are registered throughout the plugin, and
  * register them with the WordPress API. Call the run function to execute the
  * list of actions and filters.
  *
- * @package    plugin-name
+ * @package    __plugin_name__
  * @subpackage src/includes
  *
  * @since      1.0.0
  */
-class Plugin_Name_Loader {
+class __Plugin_Name_Class___Loader {
 
 	/**
 	 * @var array $actions The actions registered with WordPress to fire when
