@@ -1,8 +1,15 @@
 <?php
+
+declare( strict_types=1 );
+
 /**
- * @project     wp-plugin-skeleton
- * @author      M397
- * @email       m397.dev@gmail.com
- * @date        8/5/2024
- * @time        11:34 AM
+ * Fired when the plugin is uninstalled.
+ *
+ * @package    plugin-name
+ *
+ * @since      1.0.0
  */
+
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit();
+}

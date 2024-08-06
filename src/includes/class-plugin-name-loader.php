@@ -10,8 +10,8 @@ declare( strict_types=1 );
  * register them with the WordPress API. Call the run function to execute the
  * list of actions and filters.
  *
- * @package    src
- * @subpackage includes
+ * @package    plugin-name
+ * @subpackage src/includes
  *
  * @since      1.0.0
  */
