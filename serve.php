@@ -40,6 +40,12 @@ function init(): void {
 
 	generate( $config, __DIR__ . '/__plugin_name__.php' );
 	console_log( 'Completed!' );
+
+	$readme_path    = __DIR__ . '/plugin-readme';
+	$readme_content = file_get_contents( $readme_path );
+	file_put_contents( __DIR__ . '/README.txt', $readme_content );
+	unset( $readme_path );
+
 	result( $result );
 }
 
