@@ -6,7 +6,12 @@ another beautiful boilerplate outside.
 
 ## Installation
 
-First, you need defines some config in "ROOT_DIR/prepare.php" file
+First, Clone this repository
+```
+$ git clone git@github.com:m397dev/wp-plugin-skeleton.git
+```
+
+Second, you need defines some config in "ROOT_DIR/prepare.php" file
 
 ```
 <?php
