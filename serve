@@ -28,7 +28,7 @@ function init(): void {
 				$file_path = $container_path . '/' . $file;
 
 				if ( is_file( $file_path ) && pathinfo( $file_path )['extension'] === 'php' ) {
-					generate( $config, $file_path );
+					generate( $config, $file_path, true );
 					$result['success'][] = $container;
 				}
 			}
@@ -38,7 +38,8 @@ function init(): void {
 		}
 	}
 
-	generate( $config, __DIR__ . '/__plugin_name__.php' );
+	generate( $config, __DIR__ . '/__plugin_name__.php', true );
+	generate( $config, __DIR__ . '/uninstall.php' );
 	console_log( 'Completed!' );
 
 	$readme_path    = __DIR__ . '/plugin-readme';
@@ -55,6 +56,7 @@ function init(): void {
  *
  * @param  array  $config  The prepare configuration.
  * @param  string  $file_path  The absolute path to the given file.
+ * @param  bool  $rename  When it is true, the file name will be changes.
  *
  * @return void
  *
@@ -63,14 +65,18 @@ function init(): void {
 function generate(
 	array $config,
 	string $file_path,
+	bool $rename = false
 ): void {
 	$preg_keys    = array_keys( $config['preg'] );
 	$preg_values  = array_values( $config['preg'] );
 	$file_content = file_get_contents( $file_path );
 	$new_content  = str_replace( $preg_keys, $preg_values, $file_content );
-	$new_name     = str_replace( $preg_keys[0], $preg_values[0], $file_path );
 	file_put_contents( $file_path, $new_content );
-	rename( $file_path, $new_name );
+
+	if ( $rename === true ) {
+		$new_name = str_replace( $preg_keys[0], $preg_values[0], $file_path );
+		rename( $file_path, $new_name );
+	}
 }
 
 /**
