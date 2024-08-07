@@ -2,6 +2,6 @@
 
 declare( strict_types=1 );
 
-class Plugin_Name_I18n {
+class __Plugin_Name_Class___Repository {
 
 }

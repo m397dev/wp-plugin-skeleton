@@ -3,26 +3,26 @@
 declare( strict_types=1 );
 
 /**
- * Class Plugin_Name.
+ * Class __Plugin_Name_Class__.
  *
  * This is the core plugin class.
  * Includes attributes and functions used across both the public-facing side of
  * the site and the admin area.
  *
- * @package    plugin-name
+ * @package    __plugin_name__
  * @subpackage src/includes
  *
  * @since      1.0.0
  */
-class Plugin_Name {
+class __Plugin_Name_Class__ {
 
 	/**
 	 * @var array $plugin_info The info array data of this plugin.
 	 */
 	private array $plugin_info = [
-		'plugin_name'        => 'plugin-name',
-		'plugin_prefix'      => 'plugin-name-',
-		'plugin_text_domain' => 'plugin-name',
+		'plugin_name'        => '__plugin_name__',
+		'plugin_prefix'      => '__plugin_name__',
+		'plugin_text_domain' => '__plugin_name__',
 		'plugin_version'     => '1.0.0',
 	];
 
@@ -45,7 +45,7 @@ class Plugin_Name {
 	 */
 	private function get_config( string $config_name ): array {
 		$container_path = plugin_dir_path( dirname( __FILE__ ) ) . '/config/';
-		$config_path    = $container_path . $this->plugin_info['plugin_prefix'] . $config_name . '.php';
+		$config_path    = $container_path . $this->plugin_info['plugin_prefix'] . '-' . $config_name . '.php';
 
 		if ( ! file_exists( $config_path ) ) {
 			wp_die( __( 'The configuration file "' . $config_name . '" does not exist.',

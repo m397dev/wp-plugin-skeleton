@@ -3,11 +3,11 @@
 /**
  * Defines the configuration array that gives the route to this admin functions.
  *
- * @package     plugin-name
+ * @package     __plugin_name__
  * @subpackage  src/config
  *
  * @since       1.0.0
  */
 return [
-	'plugin_name-admin-settings.php',
+	'init' => '__plugin_name__-admin-init.php',
 ];
