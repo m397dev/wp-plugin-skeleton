@@ -43,8 +43,9 @@ function init(): void {
 
 	$readme_path    = __DIR__ . '/plugin-readme';
 	$readme_content = file_get_contents( $readme_path );
-	file_put_contents( __DIR__ . '/README.txt', $readme_content );
+	file_put_contents( __DIR__ . '/README.md', $readme_content );
 	unset( $readme_path );
+	rename( __DIR__ . '/README.md', __DIR__ . '/README.txt' );
 
 	result( $result );
 }
