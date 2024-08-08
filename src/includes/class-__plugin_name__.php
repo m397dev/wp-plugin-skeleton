@@ -110,6 +110,15 @@ class __Plugin_Name_Class__ {
 	}
 
 	/**
+	 * Run the loader to execute all the hooks with WordPress.
+	 *
+	 * @return void
+	 */
+	public function run(): void {
+		$this->loader->run();
+	}
+
+	/**
 	 * Returns parameter by the given key if it exists.
 	 *
 	 * @param  string  $key
