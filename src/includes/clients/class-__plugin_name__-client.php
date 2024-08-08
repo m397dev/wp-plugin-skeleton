@@ -2,6 +2,6 @@
 
 declare( strict_types=1 );
 
-class __Plugin_Name_Class___DB {
+class __Plugin_Name_Class___Client {
 
 }

@@ -2,6 +2,9 @@
 
 declare( strict_types=1 );
 
+/**
+ * Call function if it exists.
+ */
 if ( isset( $argv[1] ) && function_exists( $argv[1] ) ) {
 	$parameters = array_slice( $argv, 2 );
 	call_user_func( $argv[1], ...$parameters );
@@ -15,8 +18,10 @@ if ( isset( $argv[1] ) && function_exists( $argv[1] ) ) {
  * @since 1.0.0
  */
 function init(): void {
-	$config = require_once __DIR__ . '/prepare.php';
-	$result = [];
+	$config         = require_once __DIR__ . '/prepare.php';
+	$main_file      = __DIR__ . '/__plugin_name__.php';
+	$uninstall_file = __DIR__ . '/uninstall.php';
+	$result         = [];
 	console_log( 'Scanning...' );
 
 	foreach ( $config['containers'] as $container ) {
@@ -38,8 +43,14 @@ function init(): void {
 		}
 	}
 
-	generate( $config, __DIR__ . '/__plugin_name__.php', true );
-	generate( $config, __DIR__ . '/uninstall.php' );
+	if ( file_exists( $main_file ) ) {
+		generate( $config, $main_file, true );
+	}
+
+	if ( file_exists( $uninstall_file ) ) {
+		generate( $config, $uninstall_file, true );
+	}
+
 	console_log( 'Completed!' );
 
 	$readme_path    = __DIR__ . '/plugin-readme';

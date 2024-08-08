@@ -19,12 +19,84 @@ class __Plugin_Name_Class__ {
 	/**
 	 * @var array $plugin_info The info array data of this plugin.
 	 */
-	private array $plugin_info = [
+	public array $plugin_info = [
 		'plugin_name'        => '__plugin_name__',
 		'plugin_prefix'      => '__plugin_name__',
 		'plugin_text_domain' => '__plugin_name__',
 		'plugin_version'     => '1.0.0',
 	];
+
+	/**
+	 * @var __Plugin_Name_Class___Switcher $switcher Instance of the
+	 *      "__Plugin_Name_Class___Switcher" class.
+	 */
+	public __Plugin_Name_Class___Switcher $switcher;
+
+	/**
+	 * @var __Plugin_Name_Class___Loader $loader Instance of the
+	 *     "__Plugin_Name_Class___Loader" class.
+	 */
+	public __Plugin_Name_Class___Loader $loader;
+
+	/**
+	 * @var __Plugin_Name_Class___Database $database Instance of the
+	 *     "__Plugin_Name_Class___Database" class.
+	 */
+	public __Plugin_Name_Class___Database $database;
+
+	/**
+	 * @var __Plugin_Name_Class___Admin $admin Instance of the
+	 *      "__Plugin_Name_Class___Admin" class.
+	 */
+	public __Plugin_Name_Class___Admin $admin;
+
+	/**
+	 * @var __Plugin_Name_Class___Client $client Instance of the
+	 *      "__Plugin_Name_Class___Client" class.
+	 */
+	public __Plugin_Name_Class___Client $client;
+
+	/**
+	 * @var __Plugin_Name_Class___I18n $i18n Instance of the
+	 *       "__Plugin_Name_Class___I18n" class.
+	 */
+	public __Plugin_Name_Class___I18n $i18n;
+
+	/**
+	 * @var __Plugin_Name_Class___Ajax $ajax Instance of the
+	 *       "__Plugin_Name_Class___Ajax" class.
+	 */
+	public __Plugin_Name_Class___Ajax $ajax;
+
+	/**
+	 * @var __Plugin_Name_Class___Cron $cron Instance of the
+	 *        "__Plugin_Name_Class___Cron" class.
+	 */
+	public __Plugin_Name_Class___Cron $cron;
+
+	/**
+	 * @var __Plugin_Name_Class___Helper $helper Instance of the
+	 *     "__Plugin_Name_Class___Helper" class.
+	 */
+	public __Plugin_Name_Class___Helper $helper;
+
+	/**
+	 * @var __Plugin_Name_Class___Repository $repository Instance of the
+	 *      "__Plugin_Name_Class___Repository" class.
+	 */
+	public __Plugin_Name_Class___Repository $repository;
+
+	/**
+	 * @var __Plugin_Name_Class___Rest $rest Instance of the
+	 *       "__Plugin_Name_Class___Rest" class.
+	 */
+	public __Plugin_Name_Class___Rest $rest;
+
+	/**
+	 * @var __Plugin_Name_Class___Shortcode $shortcode Instance of the
+	 *        "__Plugin_Name_Class___Shortcode" class.
+	 */
+	public __Plugin_Name_Class___Shortcode $shortcode;
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -33,7 +105,68 @@ class __Plugin_Name_Class__ {
 	 * the plugin. Load the dependencies, define the locale, and set the hooks
 	 * for the admin area and the public-facing side of the site.
 	 */
-	public function __construct() {}
+	public function __construct() {
+		$this->load_instances();
+	}
+
+	/**
+	 * Returns parameter by the given key if it exists.
+	 *
+	 * @param  string  $key
+	 *
+	 * @return string
+	 */
+	public function load_param( string $key ): string {
+		$params = $this->get_config( 'params' );
+
+		if ( empty( $params[ $key ] ) ) {
+			wp_die( __( 'Cannot find any parameter name: ' . $key,
+				$this->plugin_info['plugin_text_domain'] ) );
+		}
+
+		return $params[ $key ];
+	}
+
+	/**
+	 * Create an instance of all dependencies.
+	 *
+	 * @return void
+	 */
+	private function load_instances(): void {
+		$this->load_dependencies();
+		$this->switcher   = new __Plugin_Name_Class___Switcher();
+		$this->loader     = new __Plugin_Name_Class___Loader();
+		$this->database   = new __Plugin_Name_Class___Database();
+		$this->admin      = new __Plugin_Name_Class___Admin();
+		$this->client     = new __Plugin_Name_Class___Client();
+		$this->i18n       = new __Plugin_Name_Class___I18n();
+		$this->ajax       = new __Plugin_Name_Class___Ajax();
+		$this->cron       = new __Plugin_Name_Class___Cron();
+		$this->helper     = new __Plugin_Name_Class___Helper();
+		$this->repository = new __Plugin_Name_Class___Repository();
+		$this->rest       = new __Plugin_Name_Class___Rest();
+		$this->shortcode  = new __Plugin_Name_Class___Shortcode();
+	}
+
+	/**
+	 * Load the required dependencies for this plugin.
+	 *
+	 * @return void
+	 */
+	private function load_dependencies(): void {
+		$dependencies = $this->get_config( 'dependencies' );
+
+		foreach ( $dependencies as $dependency ) {
+			$dependency_path = plugin_dir_path( __FILE__ ) . $dependency;
+
+			if ( ! file_exists( $dependency_path ) ) {
+				wp_die( __( 'The dependency: "' . $dependency_path . '" does not exists.',
+					$this->plugin_info['plugin_text_domain'] ) );
+			}
+
+			require_once $dependency_path;
+		}
+	}
 
 	/**
 	 * Returns an array data of the given configuration.
