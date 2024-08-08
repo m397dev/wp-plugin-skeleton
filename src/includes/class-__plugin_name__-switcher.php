@@ -15,4 +15,18 @@ declare( strict_types=1 );
  */
 class __Plugin_Name_Class___Switcher {
 
+	/**
+	 * Fired during plugin activation.
+	 */
+	public function activate() {
+		// Todo: Plugin activation workflow
+	}
+
+	/**
+	 * Fired during plugin deactivation.
+	 */
+	public function deactivate() {
+		// Todo: Plugin deactivation workflow
+	}
+
 }
