@@ -81,10 +81,10 @@ class __Plugin_Name_Class__ {
 	public __Plugin_Name_Class___Helper $helper;
 
 	/**
-	 * @var __Plugin_Name_Class___Repository $repository Instance of the
-	 *      "__Plugin_Name_Class___Repository" class.
+	 * @var __Plugin_Name_Class___Model $model Instance of the
+	 *      "__Plugin_Name_Class___Model" class.
 	 */
-	public __Plugin_Name_Class___Repository $repository;
+	public __Plugin_Name_Class___Model $model;
 
 	/**
 	 * @var __Plugin_Name_Class___Rest $rest Instance of the
@@ -134,18 +134,18 @@ class __Plugin_Name_Class__ {
 	 */
 	private function load_instances(): void {
 		$this->load_dependencies();
-		$this->switcher   = new __Plugin_Name_Class___Switcher();
-		$this->loader     = new __Plugin_Name_Class___Loader();
-		$this->database   = new __Plugin_Name_Class___Database();
-		$this->admin      = new __Plugin_Name_Class___Admin();
-		$this->client     = new __Plugin_Name_Class___Client();
-		$this->i18n       = new __Plugin_Name_Class___I18n();
-		$this->ajax       = new __Plugin_Name_Class___Ajax();
-		$this->cron       = new __Plugin_Name_Class___Cron();
-		$this->helper     = new __Plugin_Name_Class___Helper();
-		$this->repository = new __Plugin_Name_Class___Repository();
-		$this->rest       = new __Plugin_Name_Class___Rest();
-		$this->shortcode  = new __Plugin_Name_Class___Shortcode();
+		$this->switcher  = new __Plugin_Name_Class___Switcher();
+		$this->loader    = new __Plugin_Name_Class___Loader();
+		$this->database  = new __Plugin_Name_Class___Database();
+		$this->admin     = new __Plugin_Name_Class___Admin();
+		$this->client    = new __Plugin_Name_Class___Client();
+		$this->i18n      = new __Plugin_Name_Class___I18n();
+		$this->ajax      = new __Plugin_Name_Class___Ajax();
+		$this->cron      = new __Plugin_Name_Class___Cron();
+		$this->helper    = new __Plugin_Name_Class___Helper();
+		$this->model     = new __Plugin_Name_Class___Model();
+		$this->rest      = new __Plugin_Name_Class___Rest();
+		$this->shortcode = new __Plugin_Name_Class___Shortcode();
 	}
 
 	/**
