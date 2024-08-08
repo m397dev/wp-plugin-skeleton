@@ -7,6 +7,7 @@ another beautiful boilerplate outside.
 ## Installation
 
 First, Clone this repository
+
 ```
 $ git clone git@github.com:m397dev/wp-plugin-skeleton.git
 ```
@@ -58,6 +59,14 @@ After that, open terminal then run command:
 
 ```
 $ php serve init
+```
+
+And maybe, in some cases, you need to change permission for "tmp" and "writable" folders.
+Run the command below to do that:
+
+```
+$ sudo chmod -R 775 /tmp
+$ sudo chmod -R 775 /writable
 ```
 
 That all.

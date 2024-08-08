@@ -19,6 +19,7 @@ writable/logs/*
 # Tmp
 tmp/*
 !tmp/.gitkeep
+!tmp/README.txt
 
 # Assets
 !src/admin/assets/vendor

@@ -53,7 +53,7 @@ function init(): void {
 
 	console_log( 'Completed!' );
 
-	$readme_path    = __DIR__ . '/plugin-readme';
+	$readme_path    = __DIR__ . '/tmp/README.txt';
 	$readme_content = file_get_contents( $readme_path );
 	file_put_contents( __DIR__ . '/README.md', $readme_content );
 	unlink( $readme_path );
