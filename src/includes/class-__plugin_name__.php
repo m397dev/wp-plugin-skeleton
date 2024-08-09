@@ -104,9 +104,12 @@ class __Plugin_Name_Class__ {
 	 * Set the plugin name and the plugin version that can be used throughout
 	 * the plugin. Load the dependencies, define the locale, and set the hooks
 	 * for the admin area and the public-facing side of the site.
+	 *
+	 * @param  string  $file  Plugin main file path.
 	 */
-	public function __construct() {
+	public function __construct( string $file ) {
 		$this->load_instances();
+		$this->register_switcher_hooks( $file );
 	}
 
 	/**
@@ -134,6 +137,23 @@ class __Plugin_Name_Class__ {
 		}
 
 		return $params[ $key ];
+	}
+
+	/**
+	 * Register the activation hook for a plugin.
+	 *
+	 * @param  string  $file  The filename of the plugin including the path.
+	 *
+	 * @return void
+	 */
+	private function register_switcher_hooks( string $file ): void {
+		register_activation_hook( $file, function () {
+			$this->switcher->activate();
+		} );
+
+		register_deactivation_hook( $file, function () {
+			$this->switcher->deactivate();
+		} );
 	}
 
 	/**
